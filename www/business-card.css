@@ -1,0 +1,132 @@
+/* ==========================================================================
+   简约风格个人名片 —— 独立样式文件
+   布局：居中卡片式；卡片 12px 圆角 + 柔和阴影，悬停轻微上浮
+   ========================================================================== */
+
+/* ---------- 基础重置与全局设置 ---------- */
+* {
+    margin: 0;                     /* 清除所有元素的默认外边距 */
+    padding: 0;                    /* 清除所有元素的默认内边距 */
+    box-sizing: border-box;        /* 使宽高包含内边距与边框，方便计算 */
+}
+
+body {
+    /* 使用 Flexbox 将卡片在视口内水平、垂直双居中 */
+    display: flex;
+    justify-content: center;       /* 水平居中 */
+    align-items: center;           /* 垂直居中 */
+    min-height: 100vh;             /* 至少占满一屏高度，避免内容溢出时居中失效 */
+    background: #eef1f6;           /* 页面浅灰蓝底色，衬托卡片 */
+}
+
+/* ---------- 名片卡片主体 ---------- */
+.card {
+    width: 340px;                  /* 卡片固定宽度，保持简约紧凑的观感 */
+    background: #ffffff;           /* 卡片白色背景 */
+    border-radius: 12px;           /* 12px 圆角 */
+    padding: 32px 24px;            /* 卡片内部留白：上下 32px，左右 24px */
+    text-align: center;            /* 卡片内文字居中对齐 */
+
+    /* 柔和多层阴影：
+       第一层为贴近边缘的浅阴影，第二层为向外扩散的漫阴影，
+       多层叠加可获得更自然的“漂浮”柔和效果 */
+    box-shadow:
+        0 2px 6px rgba(0, 0, 0, 0.06),
+        0 10px 24px rgba(0, 0, 0, 0.10);
+
+    /* 过渡动画：对位移与阴影变化做平滑过渡，使悬停效果不生硬 */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* ---------- 悬停状态：卡片轻微上浮 ---------- */
+.card:hover {
+    transform: translateY(-6px);     /* 向上平移 6px，产生上浮效果 */
+    box-shadow:
+        0 6px 16px rgba(0, 0, 0, 0.10),
+        0 18px 40px rgba(0, 0, 0, 0.16); /* 加深阴影，增强漂浮感 */
+}
+
+/* ---------- 圆形头像 ---------- */
+.avatar {
+    width: 96px;                   /* 头像容器宽度 */
+    height: 96px;                  /* 头像容器高度 */
+    margin: 0 auto;                /* 水平居中 */
+    border-radius: 50%;            /* 50% 圆角形成正圆形 */
+    overflow: hidden;              /* 裁切容器外溢的内容，配合圆形裁切 */
+    display: flex;                 /* 用 Flex 使 SVG 填满并居中 */
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #d8dee6;     /* 浅灰色细边框，柔和勾勒头像边缘 */
+    background: #eef1f6;           /* 背景色与页面呼应 */
+}
+
+.avatar svg {
+    width: 100%;                   /* SVG 自适应填满头像容器 */
+    height: 100%;
+}
+
+/* ---------- 姓名与职位 ---------- */
+.name {
+    margin-top: 16px;              /* 与头像保持间距 */
+    font-size: 24px;
+    font-weight: 700;              /* 粗体突出姓名 */
+    color: #2c3440;                /* 深蓝灰，简约稳重 */
+    letter-spacing: 2px;           /* 汉字略加字距，显得更精致 */
+}
+
+.title {
+    margin-top: 8px;
+    font-size: 15px;
+    color: #7d8a99;                /* 灰色调弱化职位，突出层次 */
+}
+
+.company {
+    margin-top: 4px;
+    font-size: 13px;
+    color: #9aa6b3;                /* 更浅的灰色，形成第三个层级 */
+}
+
+/* ---------- 分隔线 ---------- */
+.divider {
+    width: 48px;                   /* 短线而非通栏，简约精致 */
+    margin: 20px auto 16px;        /* 水平居中，并控制上下间距 */
+    border: none;                  /* 去掉默认的立体边框线 */
+    border-top: 2px solid #c8d0da; /* 用上边框实现直线分隔效果 */
+}
+
+/* ---------- 联系方式列表 ---------- */
+.contact-list {
+    list-style: none;              /* 去掉默认列表圆点 */
+    padding: 0;
+}
+
+.contact-item {
+    display: flex;                 /* 图标与文字水平排布 */
+    align-items: center;
+    justify-content: center;
+    gap: 8px;                      /* 图标与文字之间的间距 */
+    margin-bottom: 10px;           /* 列表项之间留白 */
+    font-size: 13px;
+}
+
+/* 清理最后一行的多余间距 */
+.contact-item:last-child {
+    margin-bottom: 0;
+}
+
+/* 图标统一设置为等宽宽度，使文字对齐 */
+.icon {
+    width: 20px;
+    font-size: 14px;
+}
+
+/* 联系方式链接：简约配色 + 悬停变色反馈 */
+.contact-item a {
+    color: #5b6472;                /* 默认链接颜色 */
+    text-decoration: none;         /* 去掉下划线，保持简约 */
+    transition: color 0.2s ease;   /* 颜色过渡动画 */
+}
+
+.contact-item a:hover {
+    color: #4f6b8f;                /* 悬停时变为品牌蓝 */
+}

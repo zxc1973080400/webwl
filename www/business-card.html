@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <!-- 视口设置：保证在移动设备上也能正确缩放显示 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人名片</title>
+    <!-- 引入外部独立样式文件（HTML 结构与 CSS 样式分离） -->
+    <link rel="stylesheet" href="business-card.css">
+</head>
+<body>
+
+    <!-- ============ 名片卡片 ============ -->
+    <div class="card">
+
+        <!-- 圆形头像：使用内联 SVG 绘制简约人物头像占位图 -->
+        <div class="avatar" role="img" aria-label="用户头像">
+            <svg viewBox="0 0 100 100" width="100" height="100" aria-hidden="true">
+                <!-- 头部背景 -->
+                <circle cx="50" cy="48" r="42" fill="#e8eef7"/>
+                <!-- 头发 -->
+                <path d="M 18 34 Q 50 12 82 34 L 82 44 L 18 44 Z" fill="#5b6472"/>
+                <!-- 脸部 -->
+                <circle cx="50" cy="58" r="26" fill="#f5d6b8"/>
+                <!-- 眼睛 -->
+                <circle cx="42" cy="56" r="2.5" fill="#3a4150"/>
+                <circle cx="58" cy="56" r="2.5" fill="#3a4150"/>
+                <!-- 微笑 -->
+                <path d="M 42 66 Q 50 70 58 66" stroke="#c98d6a" stroke-width="2" fill="none" stroke-linecap="round"/>
+                <!-- 身体背景 -->
+                <path d="M 20 84 L 80 84 L 80 100 L 20 100 Z" fill="#4f6b8f"/>
+            </svg>
+        </div>
+
+        <!-- 姓名与职位 -->
+        <h1 class="name">张小明</h1>
+        <p class="title">全栈开发工程师</p>
+        <p class="company">Example 科技公司</p>
+
+        <!-- 分隔线：将个人信息与联系方式区分开 -->
+        <hr class="divider">
+
+        <!-- 联系方式列表 -->
+        <ul class="contact-list">
+            <li class="contact-item">
+                <span class="icon" aria-hidden="true">📞</span>
+                <a href="tel:+8613800000000">+86 138-0000-0000</a>
+            </li>
+            <li class="contact-item">
+                <span class="icon" aria-hidden="true">✉️</span>
+                <a href="mailto:ming.zhang@example.com">ming.zhang@example.com</a>
+            </li>
+            <li class="contact-item">
+                <span class="icon" aria-hidden="true">🌐</span>
+                <a href="https://www.example.com" target="_blank" rel="noopener">www.example.com</a>
+            </li>
+        </ul>
+
+    </div>
+
+</body>
+</html>
